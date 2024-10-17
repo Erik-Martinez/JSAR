@@ -7,17 +7,11 @@
 frequency_rate(hours, acci, factor = 10^6)
 }
 \arguments{
-\item{hours}{\itemize{
-\item Number total of Hours or vector
-}}
+\item{hours}{Number total of Hours or vector}
 
-\item{acci}{\itemize{
-\item Number total of accidents or vector
-}}
+\item{acci}{Number total of accidents or vector}
 
-\item{factor}{\itemize{
-\item 
-}}
+\item{factor}{Multipliavate factor}
 }
 \value{
 numeric
