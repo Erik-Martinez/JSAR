@@ -24,5 +24,6 @@ occurring in relation to the amount of time during which workers in the referenc
 were "exposed to the risk" of being involved in an occupational accident.
 }
 \examples{
+# Example with one observation
 frequency_rate(hours = 800000, acci = 80)
 }

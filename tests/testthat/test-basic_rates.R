@@ -63,3 +63,37 @@ test_that("severity rates works with defaul factor", {
 
   expect_equal(result, expected_result)
 })
+
+#---------
+
+test_that("incidence rates works with scalar values", {
+  workers <- 800
+  acci <- 77
+  factor <- 10^3
+
+  expected_result <- (acci * factor) / workers
+  result <- incidence_rate(workers = workers, acci = acci, factor = factor)
+
+  expect_equal(result, expected_result)
+})
+
+test_that("incidence rates works with vector inputs", {
+  workers <- c(700, 100)
+  acci <- c(50, 27)
+  factor <- 10^3
+
+  expected_result <- (sum(acci) * factor) / sum(workers)
+  result <- incidence_rate(workers = workers, acci = acci, factor = factor)
+
+  expect_equal(result, expected_result)
+})
+
+test_that("incidence rates works with defaul factor", {
+  workers <- 800
+  acci <- 77
+
+  expected_result <- (sum(acci) * 10^3) / sum(workers)
+  result <- incidence_rate(workers = workers, acci = acci)
+
+  expect_equal(result, expected_result)
+})
