@@ -2,4 +2,5 @@
 
 export("%>%")
 export(frequency_rate)
+export(severity_rate)
 importFrom(magrittr,"%>%")

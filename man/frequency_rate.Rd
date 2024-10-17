@@ -7,14 +7,16 @@
 frequency_rate(hours, acci, factor = 10^6)
 }
 \arguments{
-\item{hours}{Number total of Hours or vector}
+\item{hours}{Number of hours worked by workers in the reference group during
+the reference period, or a vector to sum.}
 
-\item{acci}{Number total of accidents or vector}
+\item{acci}{Number of new cases of occupational injury during the reference period,
+or a vector to sum.}
 
-\item{factor}{Multipliavate factor}
+\item{factor}{Multiplicative factor to adjust the rate (default is 10^6).}
 }
 \value{
-numeric
+Numeric value of the frequency rate
 }
 \description{
 A frequency rate indicate the number of new cases of injury
@@ -22,5 +24,5 @@ occurring in relation to the amount of time during which workers in the referenc
 were "exposed to the risk" of being involved in an occupational accident.
 }
 \examples{
-frequency_rate(hours = 800000, acci = 80, factor = 10^6)
+frequency_rate(hours = 800000, acci = 80)
 }
