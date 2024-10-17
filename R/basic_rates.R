@@ -128,3 +128,28 @@ days_lost_rate <- function(hours, acci, days) {
   return(invisible(result))
 }
 
+#' Safety Rate
+#'
+#' @param workers Total number of workers in the reference group during the
+#'  reference period, or a vector to sum.
+#' @param acci Number of new cases of occupational injury during the reference period,
+#'  or a vector to sum.
+#' @param hours Number of hours worked by workers in the reference group during
+#'  the reference period, or a vector to sum.
+#' @param factor Multiplicative factor to adjust the rate (default is 10^5).
+#'
+#' @return Numeric value of the days lost rate
+#' @export
+#'
+#' @examples
+#' safety_rate(workers = 800, acci = 80, hours = 800000)
+safety_rate <- function(workers, acci, hours, factor = 10^5) {
+  num <- (sum(workers) / sum(acci))
+  result <- basic_rate(num, sum(hours), factor)
+  if (interactive()) {
+    cat(sprintf("Safety Rate: %.2f workers expose to risk per each accident and %d work hours",
+                result, factor))
+  }
+
+  return(invisible(result))
+}
