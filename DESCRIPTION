@@ -1,6 +1,6 @@
 Package: JSAR
 Type: Package
-Title: The goal of JSAR is to give tools to job safety analysis and control work accidents.
+Title: The goal of JSAR is to give tools to job safety analysis and control work accidents
 Version: 0.1.0
 Author: Erik Martínez Sixto
 Maintainer: Erik Martínez Sixto <erikmartinezsixto@gmail.com>
