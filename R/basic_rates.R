@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-#' frquency_rate(hours = 800000, acci = 80, factor = 10^6)
+#' frequency_rate(hours = 800000, acci = 80, factor = 10^6)
 frequency_rate <- function(hours, acci, factor = 10^6){
   result <- (sum(acci) * factor) / sum(hours)
   return(result)
