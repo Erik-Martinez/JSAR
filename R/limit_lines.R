@@ -13,6 +13,14 @@
 #' \item{lim_sup}{The superior limit.}
 #' @keywords internal
 limits <- function(hours, fr, conf.level = 0.9) {
+
+  if (hours < 10000){
+    stop("this method is not applicable with less of 10000 hours. To be use it,
+         hours from consecutive months must be accumulated.")
+  }
+  else if (hours >= 10000 & hours <= 1200000){
+    warning("The limits are calculated assuming a normal distribution, not a Poisson distribution. The smaller the value of 'hours', the less reliable these limits become.", call.=F)
+  }
   m <- fr * 10^-6 * hours
   s <- m^(1/2)
   f <- (10^6 / hours)
@@ -21,9 +29,4 @@ limits <- function(hours, fr, conf.level = 0.9) {
 
   return(list(lim_inf = lim_inf, lim_sup = lim_sup))
 }
-# El problema con todo este proceso es que no te has dado cuenta que la empresa
-# tiene que dar previamente un valor esperado de frecuency_rate y tambien tienes
-#que pensar en el tema de la ley de poisson que se calcula fe forma distnita
-# el ntp no parece indicar como pero el libro finito si
-# A partir de 610000 las formula funciona bien pero no para numeros más pequeños
-# tengo que buscar una solución para los datos mas pequños
+

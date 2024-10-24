@@ -10,6 +10,11 @@
 #' @keywords internal
 
 basic_rate <- function(num, den, factor){
+  if (!is.numeric(num) || any(num <= 0) || !is.numeric(den) || any(num <= 0)){
+    stop("all the parameters must be a numeric or a numeric vector with positive values.",
+         call. = FALSE)
+  }
+
   result <- (sum(num) * factor) / sum(den)
   return(result)
 }
