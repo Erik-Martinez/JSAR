@@ -10,8 +10,12 @@
 #' @keywords internal
 
 basic_rate <- function(num, den, factor){
-  if (!is.numeric(num) || any(num <= 0) || !is.numeric(den) || any(num <= 0)){
+  if (!is.numeric(num) || any(num <= 0) || !is.numeric(den) || any(den <= 0)){
     stop("all the parameters must be a numeric or a numeric vector with positive values.",
+         call. = FALSE)
+  }
+  if (!is.numeric(factor) | factor <= 0){
+    stop("factor must be a numeric with positive values.",
          call. = FALSE)
   }
 
