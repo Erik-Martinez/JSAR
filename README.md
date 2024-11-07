@@ -15,6 +15,10 @@ In this first steps of development, the idea would include tools for the
 analysis of accidents like the rates created by the International Labour Organization (ILO)
 and the method of boundary lines.
 
+The idea is to continue including and developing tools to help improve the safety and healt of the workers, 
+so future developments may go beyond accident analysis, such as sample analysis techniques for industrial hygiene 
+or survey analysis techniques for psychosociology.
+
 ## Installation
 
 You can install the development version of JSAR like so:
