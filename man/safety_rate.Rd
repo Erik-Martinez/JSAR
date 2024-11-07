@@ -22,7 +22,7 @@ the reference period, or a vector to sum.}
 Numeric value of the days lost rate
 }
 \description{
-Safety Rate
+A safety rate relates accidents with exposed workers and man-hours worked.
 }
 \examples{
 safety_rate(workers = 800, acci = 80, hours = 800000)

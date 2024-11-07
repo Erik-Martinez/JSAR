@@ -2,7 +2,7 @@
 % Please edit documentation in R/limit_lines.R
 \name{limits}
 \alias{limits}
-\title{Limits}
+\title{Limits (Experimental)}
 \usage{
 limits(hours, fr, conf.level = 0.9)
 }
@@ -23,4 +23,10 @@ A list containing the following components:
 This function is internal to calculate the superior and inferior limits for
 the frequency rate.
 }
-\keyword{internal}
+\details{
+This function is experimental. Use it with caution. Its behavior
+may change in future releases.
+}
+\examples{
+limits(1000000, 70)
+}

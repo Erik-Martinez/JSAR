@@ -1,6 +1,6 @@
 #' Basic Rate
 #'
-#'This function is the internal use to calculate some rates.
+#'This function is for internal use to calculate some rates.
 #'
 #' @param num A number or a vector
 #' @param den A number or a vector
@@ -138,6 +138,8 @@ days_lost_rate <- function(hours, acci, days) {
 }
 
 #' Safety Rate
+#'
+#' A safety rate relates accidents with exposed workers and man-hours worked.
 #'
 #' @param workers Total number of workers in the reference group during the
 #'  reference period, or a vector to sum.

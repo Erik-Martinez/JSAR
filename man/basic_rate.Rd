@@ -17,6 +17,6 @@ basic_rate(num, den, factor)
 Numeric
 }
 \description{
-This function is the internal use to calculate some rates.
+This function is for internal use to calculate some rates.
 }
 \keyword{internal}
