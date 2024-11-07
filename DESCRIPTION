@@ -1,11 +1,15 @@
 Package: JSAR
 Type: Package
-Title: The goal of JSAR is to give tools to job safety analysis and control work accidents
+Title: JSAR (Job Safety Analysis in R)
 Version: 0.1.0
 Author: Erik Martínez Sixto
 Maintainer: Erik Martínez Sixto <erikmartinezsixto@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: JSAR (Job Safety Analysis in R) is a package whose goal is to create tools for 
+occupational risk prevention. Thousand of accidents occur daily in workplaces 
+around the world. Analyzing them is basic to prevent them for next times. 
+These analyses are usually made in Excel or with online tools that different
+governments provide for their citizens; however, I think that R could be the perfect
+environment to do this kind of analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

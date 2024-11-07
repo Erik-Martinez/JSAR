@@ -1,6 +1,6 @@
 #' Basic Rate
 #'
-#'This function is for internal use to calculate some rates.
+#' This function is for internal use to calculate some rates.
 #'
 #' @param num A number or a vector
 #' @param den A number or a vector
@@ -9,14 +9,16 @@
 #' @return Numeric
 #' @keywords internal
 
-basic_rate <- function(num, den, factor){
-  if (!is.numeric(num) || any(num <= 0) || !is.numeric(den) || any(den <= 0)){
+basic_rate <- function(num, den, factor) {
+  if (!is.numeric(num) || any(num <= 0) || !is.numeric(den) || any(den <= 0)) {
     stop("all the parameters must be a numeric or a numeric vector with positive values.",
-         call. = FALSE)
+      call. = FALSE
+    )
   }
-  if (!is.numeric(factor) | factor <= 0){
+  if (!is.numeric(factor) | factor <= 0) {
     stop("factor must be a numeric with positive values.",
-         call. = FALSE)
+      call. = FALSE
+    )
   }
 
   result <- (sum(num) * factor) / sum(den)
@@ -25,9 +27,9 @@ basic_rate <- function(num, den, factor){
 
 #' Frequency rate
 #'
-#'A frequency rate indicate the number of new cases of injury
-#'occurring in relation to the amount of time during which workers in the reference group
-#'were "exposed to the risk" of being involved in an occupational accident.
+#' A frequency rate indicate the number of new cases of injury
+#' occurring in relation to the amount of time during which workers in the reference group
+#' were "exposed to the risk" of being involved in an occupational accident.
 #'
 #' @param hours Number of hours worked by workers in the reference group during
 #'  the reference period, or a vector to sum.
@@ -41,12 +43,13 @@ basic_rate <- function(num, den, factor){
 #' @examples
 #' # Example with one observation
 #' frequency_rate(hours = 800000, acci = 80)
-
-frequency_rate <- function(hours, acci, factor = 10^6){
+frequency_rate <- function(hours, acci, factor = 10^6) {
   result <- basic_rate(acci, hours, factor)
   if (interactive()) {
-    cat(sprintf("Frequency Rate: %.2f accidents per %d work hours",
-                result, factor))
+    cat(sprintf(
+      "Frequency Rate: %.2f accidents per %d work hours",
+      result, factor
+    ))
   }
 
   return(invisible(result))
@@ -70,11 +73,13 @@ frequency_rate <- function(hours, acci, factor = 10^6){
 #'
 #' @examples
 #' severity_rate(hours = 800000, days = 300)
-severity_rate <- function(hours, days, factor = 10^3){
+severity_rate <- function(hours, days, factor = 10^3) {
   result <- basic_rate(days, hours, factor)
   if (interactive()) {
-    cat(sprintf("Severity Rate: %.2f number of work days lost due to ocupaional injuries per %d work hours",
-                result, factor))
+    cat(sprintf(
+      "Severity Rate: %.2f number of work days lost due to ocupaional injuries per %d work hours",
+      result, factor
+    ))
   }
 
   return(invisible(result))
@@ -82,8 +87,8 @@ severity_rate <- function(hours, days, factor = 10^3){
 
 #' Incidence rate
 #'
-#'A frequency rate indicate the number of new cases of injury
-#'occurring in relation to the amount of workers in the reference group.
+#' A frequency rate indicate the number of new cases of injury
+#' occurring in relation to the amount of workers in the reference group.
 #'
 #' @param workers Total number of workers in the reference group during the
 #'  reference period, or a vector to sum.
@@ -96,11 +101,13 @@ severity_rate <- function(hours, days, factor = 10^3){
 #'
 #' @examples
 #' incidence_rate(workers = 800, acci = 80)
-incidence_rate <- function(workers, acci, factor = 10^3){
+incidence_rate <- function(workers, acci, factor = 10^3) {
   result <- basic_rate(acci, workers, factor)
   if (interactive()) {
-    cat(sprintf("Frequency Rate: %.2f accidents per %d workers",
-                result, factor))
+    cat(sprintf(
+      "Frequency Rate: %.2f accidents per %d workers",
+      result, factor
+    ))
   }
 
   return(invisible(result))
@@ -130,8 +137,10 @@ days_lost_rate <- function(hours, acci, days) {
   sr <- basic_rate(days, hours, 10^3)
   result <- (sr * 10^3) / fr
   if (interactive()) {
-    cat(sprintf("Days Lost Rate: %.2f number of work days lost per each accident",
-                result))
+    cat(sprintf(
+      "Days Lost Rate: %.2f number of work days lost per each accident",
+      result
+    ))
   }
 
   return(invisible(result))
@@ -158,8 +167,10 @@ safety_rate <- function(workers, acci, hours, factor = 10^5) {
   num <- (sum(workers) / sum(acci))
   result <- basic_rate(num, sum(hours), factor)
   if (interactive()) {
-    cat(sprintf("Safety Rate: %.2f workers expose to risk per each accident and %d work hours",
-                result, factor))
+    cat(sprintf(
+      "Safety Rate: %.2f workers expose to risk per each accident and %d work hours",
+      result, factor
+    ))
   }
 
   return(invisible(result))

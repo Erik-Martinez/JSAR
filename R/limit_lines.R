@@ -19,7 +19,6 @@
 #' @examples
 #' limits(1000000, 70)
 limits <- function(hours, fr, conf.level = 0.9) {
-
   # Check Errors
   if (!is.numeric(hours) || hours <= 0) {
     stop("'hours' must be a positive number greater than 0.", call. = F)
@@ -31,27 +30,29 @@ limits <- function(hours, fr, conf.level = 0.9) {
     stop("'conf.level' must be a number between 0 and 1 (exclusive).", call. = F)
   }
 
-  if (hours < 10000){
+  if (hours < 10000) {
     stop("this method is not applicable with less of 10000 hours. To be use it, hours from consecutive months must be accumulated.",
-         call.=F)
+      call. = F
+    )
   }
 
-  if (hours >= 10000 & hours <= 1200000){
+  if (hours >= 10000 & hours <= 1200000) {
     warning("The limits are calculated assuming a normal distribution, not a Poisson distribution. The smaller the value of 'hours', the less reliable these limits become.",
-            call.=F)
+      call. = F
+    )
   }
 
   warning("This function is experimental and may change in future versions.",
-          call.=F)
+    call. = F
+  )
 
   # Function
 
   m <- fr * 10^-6 * hours
-  s <- m^(1/2)
+  s <- m^(1 / 2)
   f <- (10^6 / hours)
-  lim_inf <- (m - (qnorm(1 - (1 - conf.level)/2)) * s) * f
-  lim_sup <- (m + (qnorm(1 - (1 - conf.level)/2)) * s) * f
+  lim_inf <- (m - (qnorm(1 - (1 - conf.level) / 2)) * s) * f
+  lim_sup <- (m + (qnorm(1 - (1 - conf.level) / 2)) * s) * f
 
   return(list(lim_inf = lim_inf, lim_sup = lim_sup))
 }
-
