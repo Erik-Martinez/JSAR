@@ -5,11 +5,11 @@ Version: 0.1.0
 Author: Erik Martínez Sixto
 Maintainer: Erik Martínez Sixto <erikmartinezsixto@gmail.com>
 Description: JSAR (Job Safety Analysis in R) is a package whose goal is to create tools for 
-occupational risk prevention. Thousand of accidents occur daily in workplaces 
-around the world. Analyzing them is basic to prevent them for next times. 
-These analyses are usually made in Excel or with online tools that different
-governments provide for their citizens; however, I think that R could be the perfect
-environment to do this kind of analysis.
+ occupational risk prevention. Thousand of accidents occur daily in workplaces 
+ around the world. Analyzing them is basic to prevent them for next times. 
+ These analyses are usually made in Excel or with online tools that different
+ governments provide for their citizens; however, I think that R could be the perfect
+ environment to do this kind of analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
